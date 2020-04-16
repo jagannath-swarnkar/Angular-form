@@ -10,6 +10,9 @@
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+button.ng-invalid{
+  disabled:true
+}
 
 #currency {
   width: 120px;

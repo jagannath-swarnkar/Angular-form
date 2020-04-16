@@ -26,8 +26,8 @@ export class AppComponent implements OnInit{
       'postalCode': new FormControl(null, Validators.required),
       'state': new FormControl(null, Validators.required),
       'country': new FormControl(null, Validators.required),
-      'priceNegotiable': new FormControl(null, Validators.required),
-      'availableForExchange': new FormControl(null, Validators.required),
+      'priceNegotiable': new FormControl(false, Validators.required),
+      'availableForExchange': new FormControl(false, Validators.required),
       'image': new FormControl(null, Validators.required),
       'assets': new FormControl(null, Validators.required),
       'assetTypes': new FormControl(null, Validators.required)
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit{
   }
 
   onSubmit(){
-    console.log(this.lopongoForm.value)
-    this.lopongoForm.reset();
+    console.log(this.lopongoForm)
+    // this.lopongoForm.reset();
   }
 }
