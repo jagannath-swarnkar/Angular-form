@@ -10,6 +10,7 @@ import { FormGroup, FormControl, Validators, FormArray, Form } from '@angular/fo
 export class AppComponent implements OnInit{
   // @ViewChild('uploadedImg') uploadedImg
   assets=['new','used']
+  assetTypes=['Properties', 'Mobiles','Cars', 'Lopongo', 'Lopongo long','assettype name for testing']
   lopongoForm: FormGroup
   
   ngOnInit(){
@@ -29,6 +30,7 @@ export class AppComponent implements OnInit{
       'availableForExchange': new FormControl(null, Validators.required),
       'image': new FormControl(null, Validators.required),
       'assets': new FormControl(null, Validators.required),
+      'assetTypes': new FormControl(null, Validators.required)
     })
   }
 
