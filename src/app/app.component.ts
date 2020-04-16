@@ -34,5 +34,6 @@ export class AppComponent implements OnInit{
 
   onSubmit(){
     console.log(this.lopongoForm.value)
+    this.lopongoForm.reset();
   }
 }
