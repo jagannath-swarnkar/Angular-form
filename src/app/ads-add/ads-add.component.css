@@ -1,0 +1,56 @@
+.container {
+    border: 1px solid black;
+    width: 800px;
+    margin-top: 30px;
+    padding: 20px;
+    height: 800px;
+    overflow: auto;
+  }
+  
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+
+  
+  #currency {
+    width: 120px;
+  }
+  .divs {
+    position: relative;
+    display: inline-block;
+    border: 3px dashed lightgrey;
+    cursor: pointer;
+  }
+  #image-upload {
+    margin: 20px;
+    cursor: pointer;
+  }
+  
+  .inputs {
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background: #00f;
+    z-index: 999;
+    cursor: pointer;
+  }
+  #asset {
+    width: 100%;
+    background-color: transparent;
+    height: 37px;
+    border-radius: 4px;
+  }
+  
+  #submit-button {
+    text-align: center;
+  }
+  #assetType {
+    height: 37px;
+    width: 100%;
+    max-width: 250px;
+    background-color: #edf1f7;
+    border-radius: 5px;
+  }
+  
