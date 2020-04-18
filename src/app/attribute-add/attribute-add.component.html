@@ -14,11 +14,12 @@
 
     <div class="card">
         <div class="card-body">
-            <form [formGroup]="attributeForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="attributeForm" (ngSubmit)="onSubmit()" #f="ngForm">
                 <div class="form-group row">
-                    <label for="inputTitle" class="col-sm-3 col-form-label">Title (English)</label>
+                    <label for="inputTitle" class="col-sm-3 col-form-label required">Title (English)</label>
                     <div class="col-sm-9">
                         <input 
+                            [style.border]="!attributeForm.controls.titleEnglish.valid && formSubmitted? '1px solid red': '1px solid grey'"
                             type="title" 
                             class="form-control" 
                             id="inputTitle"
@@ -27,31 +28,36 @@
                 </div>
                 <!-- ---------------------------------------------------- -->
                 <div class="form-group row" *ngIf="spanish">
-                    <label for="inputTitle" class="col-sm-3 col-form-label">Title (Spanish)</label>
+                    <label for="inputTitle" class="col-sm-3 col-form-label required">Title (Spanish)</label>
                     <div class="col-sm-9">
                         <input 
+                            [style.border]="!attributeForm.controls.titleSpanish.valid && formSubmitted? '1px solid red': '1px solid grey'"
                             type="title" 
                             class="form-control" 
                             id="inputTitle"
-                            formControlName="titleSpanish">
+                            formControlName="titleSpanish"
+                            required>
                     </div>
                 </div>
                 <!-- ---------------------------------------------------- -->
                 <div class="form-group row" *ngIf="hindi">
-                    <label for="inputTitle" class="col-sm-3 col-form-label">Title (Hindi)</label>
+                    <label for="inputTitle" class="col-sm-3 col-form-label required" >Title (Hindi)</label>
                     <div class="col-sm-9">
                         <input 
+                            [style.border]="!attributeForm.controls.titleHindi.valid && formSubmitted? '1px solid red': '1px solid grey'"
                             type="title" 
                             class="form-control" 
                             id="inputTitle"
-                            formControlName="titleHindi">
+                            formControlName="titleHindi"
+                            required>
                     </div>
                 </div>
                 <!-- ---------------------------------------------------- -->
                 <div class="form-group row">
-                    <label for="inputTitle" class="col-sm-3 col-form-label">Title Tag</label>
+                    <label for="inputTitle" class="col-sm-3 col-form-label required">Title Tag</label>
                     <div class="col-sm-9">
                         <input 
+                            [style.border]="!attributeForm.controls.titleTag.valid && formSubmitted? '1px solid red': '1px solid grey'"
                             type="title" 
                             class="form-control" 
                             id="inputTitle"
@@ -60,10 +66,12 @@
                 </div>
                 <!-- ---------------------------------------------------- -->
                 <div class="form-group row">
-                    <label for="inputTitle" class="col-sm-3 col-form-label">Type</label>
+                    <label for="inputTitle" class="col-sm-3 col-form-label required">Type</label>
                     <div class="col-sm-9">
                         <div class="dropdown">
-                            <select formControlName="type" (change)="typeChange($event)" class="btn btn-default dropdown-toggle" id="typeButton">
+                            <select 
+                                [style.border]="!attributeForm.controls.type.valid && formSubmitted? '1px solid red': '1px solid grey'"
+                                formControlName="type" (change)="typeChange($event)" class="btn btn-default dropdown-toggle" id="typeButton">
                                 <option 
                                     *ngFor="let type of typeList"
                                     class="dropdown-item" 
@@ -74,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-                <app-type-attrs *ngIf="type" [selectedType]="type"></app-type-attrs>
+                <app-type-attrs *ngIf="type" [selectedType]="type" [formSubmitStatus]="formSubmitted" (selectedTypeValue)="typeValue($event)"></app-type-attrs>
                 <!-- ---------------------------------------------------- -->
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Icon</label>
@@ -119,7 +127,7 @@
                     <label for="inputTitle" class="col-sm-3 col-form-label">Ratable</label>
                     <div class="col-sm-9">
                         <div class="custom-control custom-switch">
-                            <input 
+                            <input                                 
                                 type="checkbox" 
                                 class="custom-control-input" 
                                 id="customSwitch3"
@@ -130,11 +138,12 @@
                 </div>
                 <div class="form-gourp row" id="submit-button">
                     <button 
-                        class="btn btn-primary"
-                        [disabled]="!attributeForm.valid" >Submit</button>
-                </div>
+                        class="btn btn-primary"                        
+                        type="submit"
+                        >Submit</button>
+                    </div>
+                    <!-- [disabled]="!attributeForm.valid" [disabled]="!f.valid"-->                
             </form>
         </div>
     </div>
-
 </div>

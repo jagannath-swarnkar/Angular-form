@@ -1,68 +1,78 @@
 
 <div *ngIf="type=='Text Box'">
     <div class="form-group row">
-        <label for="inputTitle" class="col-sm-3 col-form-label">Conditions (English) *</label>
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Conditions (English) </label>
         <div class="col-sm-4">
             <input 
-                type="title" 
+                type="number" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="min Text"
-                >
+                [(ngModel)]="minValue"
+                required>
         </div>
         <div class="col-sm-4">
             <input 
-                type="title" 
+                type="number" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="max Text"
-                >
+                [(ngModel)]="maxValue"
+                required>
         </div>
     </div>
 </div>
 <div *ngIf="type=='Text Area'">
     <div class="form-group row">
-        <label for="inputTitle" class="col-sm-3 col-form-label">Conditions (English) *</label>
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Conditions (English) </label>
         <div class="col-sm-4">
             <input 
-                type="title" 
+                type="number" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="min Text"
-                >
+                [(ngModel)]="minValue"
+                required>
         </div>
         <div class="col-sm-4">
             <input 
-                type="title" 
+                type="number" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="max Text"
-                >
+                [(ngModel)]="maxValue"
+                required>
         </div>
     </div>
 </div>
 <div *ngIf="type=='Range Slider'">
     <div class="form-group row">
-        <label for="inputTitle" class="col-sm-3 col-form-label">Conditions Min (English) *</label>
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Conditions Min (English) </label>
         <div class="col-sm-4">
-            <input 
+            <select 
                 type="title" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="Unit Name (English)"
-                >
+                [(ngModel)]="unitName"
+                required>
+                <option 
+                    *ngFor="let svalue of rangeSliderList.split(',')" 
+                    [value]="svalue">{{ svalue }}</option>
+            </select>
         </div>
         <div class="col-sm-4">
             <input 
-                type="title" 
+                type="number" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="Min Value (English)"
-                >
+                [(ngModel)]="minValue"
+                required>
         </div>
     </div>
     <div class="form-group row">
-        <label for="inputTitle" class="col-sm-3 col-form-label">Conditions Max (English) *</label>
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Conditions Max (English) </label>
         <div class="col-sm-4">
             <input 
                 type="title" 
@@ -74,101 +84,174 @@
         </div>
         <div class="col-sm-4">
             <input 
-                type="title" 
+                type="number" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="Max Vlaue (English)"
-                >
+                [(ngModel)]="maxValue"
+                required>
         </div>
     </div>
 </div>
 <div *ngIf="type=='Checkbox'">
     <div class="form-group row">
-        <label for="inputTitle" class="col-sm-3 col-form-label">Conditions (English) *</label>
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Conditions (English) </label>
         <div class="col-sm-9">
             <input 
                 type="title" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="Enter values comman(,) separated"
-                >
+                [(ngModel)]="arrayValue"
+                required>
         </div>
     </div>
 </div>
 <div *ngIf="type=='Radio Button'">
     <div class="form-group row">
-        <label for="inputTitle" class="col-sm-3 col-form-label">Conditions (English) *</label>
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Conditions (English) </label>
         <div class="col-sm-9">
             <input 
                 type="title" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="Enter values comman(,) separated"
-                >
+                [(ngModel)]="arrayValue"
+                required>
         </div>
     </div>
 </div>
 <div *ngIf="type=='Drop Down'">
     <div class="form-group row">
-        <label for="inputTitle" class="col-sm-3 col-form-label">Conditions (English) *</label>
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Conditions (English) </label>
         <div class="col-sm-9">
             <input 
                 type="title" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="Enter values comman(,) separated"
-                >
+                [(ngModel)]="arrayValue"
+                required>
         </div>
     </div>
 </div>
 
 <div *ngIf="type=='+/- controller'">
     <div class="form-group row">
-        <label for="inputTitle" class="col-sm-3 col-form-label">Conditions (English) *</label>
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Conditions (English) </label>
         <div class="col-sm-4">
             <input 
-                type="title" 
+                type="number" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="min +/-"
-                >
+                [(ngModel)]="minValue"
+                required>
         </div>
         <div class="col-sm-4">
             <input 
-                type="title" 
+                type="number" 
                 class="form-control" 
                 id="inputTitle"
                 placeholder="max +/-"
-                >
+                [(ngModel)]="maxValue"
+                required>
         </div>
     </div>
 </div>
 
 <div *ngIf="type=='Numerical Input box'">
     <div class="form-group row">
-        <label for="inputTitle" class="col-sm-3 col-form-label">Conditions (English) *</label>
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Conditions (English) </label>
+        <div class="col-sm-4">
+            <select 
+                type="title" 
+                class="form-control" 
+                id="inputTitle"
+                [(ngModel)]="unitName"
+                required>
+                <option 
+                    *ngFor="let svalue of rangeSliderList.split(',')" 
+                    [value]="svalue">{{ svalue }}</option>
+            </select>
+        </div>
+        <div class="col-sm-2">
+            <input 
+                type="number" 
+                class="form-control" 
+                id="inputTitle"
+                placeholder="min"
+                [(ngModel)]="minValue"
+                required>
+        </div>
+        <div class="col-sm-2">
+            <input 
+                type="number" 
+                class="form-control" 
+                id="inputTitle"
+                placeholder="max"
+                [(ngModel)]="maxValue"
+                required>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="type=='Image Upload'">
+    <div class="form-group row">
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Conditions (English) </label>
         <div class="col-sm-4">
             <input 
-                type="title" 
+                type="number" 
                 class="form-control" 
                 id="inputTitle"
-                >
+                placeholder="min Image"
+                [(ngModel)]="minValue"
+                required>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-4">
             <input 
-                type="title" 
+                type="number" 
                 class="form-control" 
                 id="inputTitle"
-                placeholder="max"
-                >
+                placeholder="max Image"
+                [(ngModel)]="maxValue"
+                required>
         </div>
-        <div class="col-sm-2">
+    </div>
+</div>
+
+<div *ngIf="type=='Video Upload'">
+    <div class="form-group row">
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Conditions (English) </label>
+        <div class="col-sm-4">
             <input 
-                type="title" 
+                type="number" 
                 class="form-control" 
                 id="inputTitle"
-                placeholder="max"
-                >
+                placeholder="min Video"
+                [(ngModel)]="minValue"
+                required>
+        </div>
+        <div class="col-sm-4">
+            <input 
+                type="number" 
+                class="form-control" 
+                id="inputTitle"
+                placeholder="max Video"
+                [(ngModel)]="maxValue"
+                required>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="type=='Brands & Models'">
+    <div class="form-group row">
+        <label for="inputTitle" class="col-sm-3 col-form-label required">Select Brands</label>
+        <div class="col-sm-9">
+            <button (click)="toSelectBrand()" type="button" class="btn btn-primary">
+                Select Brand
+            </button>
         </div>
     </div>
 </div>

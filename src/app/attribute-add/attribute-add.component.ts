@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray, Form } from '@angular/forms';
 
 @Component({
@@ -9,8 +9,9 @@ import { FormGroup, FormControl, Validators, FormArray, Form } from '@angular/fo
 export class AttributeAddComponent implements OnInit {
   spanish: boolean = false;
   hindi: boolean = false;
-  dummy = 'select one';
-  type=null;
+  result= {}
+  type = null;
+  typeEventValue = null
   typeList = [
     'Text Box',
     'Text Area',
@@ -28,8 +29,10 @@ export class AttributeAddComponent implements OnInit {
     'Brands & Models',
     'URL'
   ]
-
+  errorMessageColor = '1px solid lightgrey'
   attributeForm: FormGroup;
+  formSubmitted = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -39,19 +42,32 @@ export class AttributeAddComponent implements OnInit {
       'titleSpanish': new FormControl(null),
       'titleTag': new FormControl(null, Validators.required),
       'type': new FormControl(null, Validators.required),
-      'icon': new FormControl(null, Validators.required),
+      'icon': new FormControl(null),
       'mandatory': new FormControl(false, Validators.required),
       'filterable': new FormControl(false, Validators.required),
-      'ratable': new FormControl(false, Validators.required)
+      'ratable': new FormControl(false, Validators.required),
+      'textData': new FormControl('test text')
     })
   }
 
-  onSubmit(){
-    console.log(this.attributeForm)
-    // this.lopongoForm.reset();
+  onSubmit() {
+    this.formSubmitted = true;
+    //checking for validation
+    if (this.attributeForm.valid) {
+      this.result = this.attributeForm.value
+      this.result['selectedTypeValue'] = this.typeEventValue
+      console.log(this.result)
+
+      // after success submission
+      this.formSubmitted = false;
+      this.type = null;
+    }else{
+      console.log('invalid form')
+    }
+    this.attributeForm.reset();
   }
 
-  typeChange(event){
+  typeChange(event) {
     console.log(event.target.value)
     this.type = event.target.value
   }
@@ -63,6 +79,10 @@ export class AttributeAddComponent implements OnInit {
   addHindi(event) {
     console.log(event.target.checked);
     this.hindi = event.target.checked
+  }
+
+  typeValue(event: Event) {
+    this.typeEventValue = event
   }
 
 }

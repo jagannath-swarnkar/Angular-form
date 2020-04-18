@@ -16,3 +16,7 @@
 #submit-button{
     justify-content: center;
 }
+.required:after {
+    content:" *";
+    color: red;
+}

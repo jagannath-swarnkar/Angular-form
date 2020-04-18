@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MDBBootstrapModule} from 'angular-bootstrap-md';
 
 import { AppComponent } from './app.component';
 import { AttributeAddComponent } from './attribute-add/attribute-add.component';
